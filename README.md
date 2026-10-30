@@ -2,9 +2,6 @@
 
 A Flask web app for exploring the Iris dataset, with data tables, Matplotlib/Seaborn charts, species pages, and a Flower Finder that identifies a species from its measurements.
 
-## 🌸 Iris Flower Explorer
-
-A Flask web app for exploring the classic Iris flower dataset. Browse the data, view charts, read about each species, and use the Flower Finder to guess a species from its measurements.
 
 ## Features
 
