@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Dataset — Iris Flower Explorer{% endblock %}
+{% block content %}
+
+<section class="section">
+    <h1 class="section-title">The Iris Dataset</h1>
+    <p class="section-sub">150 flowers, 4 measurements each (in centimeters).
+       Filter by species to see how the numbers differ.</p>
+
+    <div class="tabs">
+        <a href="/dataset" class="{{ 'active' if not selected }}">All</a>
+        {% for s in all_species %}
+            <a href="/dataset?species={{ s }}" class="{{ 'active' if selected == s }}">{{ s | capitalize }}</a>
+        {% endfor %}
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Sepal Length</th>
+                <th>Sepal Width</th>
+                <th>Petal Length</th>
+                <th>Petal Width</th>
+                <th>Species</th>
+            </tr>
+            {% for flower in flowers %}
+            <tr>
+                <td>{{ flower["Id"] }}</td>
+                <td>{{ flower["SepalLengthCm"] }}</td>
+                <td>{{ flower["SepalWidthCm"] }}</td>
+                <td>{{ flower["PetalLengthCm"] }}</td>
+                <td>{{ flower["PetalWidthCm"] }}</td>
+                <td>{{ flower["Species"] | capitalize }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+
+{% endblock %}

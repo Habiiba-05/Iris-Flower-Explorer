@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Iris Flower Explorer — Home{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <div class="leaf-divider">🌿🌸🌿</div>
+    <h1>Iris Flower Explorer</h1>
+    <p>An interactive way to explore three Iris flower species — discover their
+       characteristics, compare their measurements, and find the species that
+       matches your own flower.</p>
+    <a href="#flowers" class="btn">Explore the Flowers</a>
+</section>
+
+<section class="section" id="flowers">
+    <h2 class="section-title">Meet the Species</h2>
+    <p class="section-sub">Every card below is built from the real dataset —
+       tap a species to see its full stats and photo.</p>
+
+    <div class="card-grid">
+        {% for species, stats in summary.items() %}
+        <div class="flower-card">
+            <div class="img-wrap">
+                <img src="{{ url_for('static', filename='images/' ~ species ~ '.jpg') }}" alt="Iris {{ species }}">
+            </div>
+            <h3>Iris {{ species | capitalize }}</h3>
+            <div class="count">{{ stats.count }} specimens</div>
+            <p class="desc">{{ descriptions[species] }}</p>
+            <a href="/species/{{ species }}" class="btn btn-outline">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

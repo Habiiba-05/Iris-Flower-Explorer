@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Iris {{ name | capitalize }}{% endblock %}
+{% block content %}
+
+<div class="species-hero">
+    <div class="img-wrap">
+        <img src="{{ url_for('static', filename='images/' ~ name ~ '.jpg') }}" alt="Iris {{ name }}">
+    </div>
+    <div class="info">
+        <h1>Iris {{ name | capitalize }}</h1>
+        <p class="latin">{{ latin_names[name] }}</p>
+        <p class="desc">{{ descriptions[name] }}</p>
+        <a href="/dataset?species={{ name }}" class="btn">See all {{ name }} rows in the dataset</a>
+    </div>
+</div>
+
+{% if stats %}
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="value">{{ stats.count }}</div>
+        <div class="label">Specimens</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">{{ stats.avg_sepal_length }} cm</div>
+        <div class="label">Avg Sepal Length</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">{{ stats.avg_sepal_width }} cm</div>
+        <div class="label">Avg Sepal Width</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">{{ stats.avg_petal_length }} cm</div>
+        <div class="label">Avg Petal Length</div>
+    </div>
+    <div class="stat-card">
+        <div class="value">{{ stats.avg_petal_width }} cm</div>
+        <div class="label">Avg Petal Width</div>
+    </div>
+</div>
+{% else %}
+<p class="section-sub">No data found for this species.</p>
+{% endif %}
+
+{% endblock %}

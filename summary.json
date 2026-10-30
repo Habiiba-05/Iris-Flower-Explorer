@@ -1,0 +1,23 @@
+{
+    "setosa": {
+        "count": 50,
+        "avg_sepal_length": 5.01,
+        "avg_sepal_width": 3.42,
+        "avg_petal_length": 1.46,
+        "avg_petal_width": 0.24
+    },
+    "versicolor": {
+        "count": 50,
+        "avg_sepal_length": 5.94,
+        "avg_sepal_width": 2.77,
+        "avg_petal_length": 4.26,
+        "avg_petal_width": 1.33
+    },
+    "virginica": {
+        "count": 50,
+        "avg_sepal_length": 6.59,
+        "avg_sepal_width": 2.97,
+        "avg_petal_length": 5.55,
+        "avg_petal_width": 2.03
+    }
+}

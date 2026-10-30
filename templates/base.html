@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Iris Flower Explorer{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="brand">🌸 Iris Flower Explorer</a>
+        <div class="nav-links">
+            <a href="/" class="{{ 'active' if active == 'home' }}">Home</a>
+            <a href="/#flowers" class="{{ 'active' if active == 'flowers' }}">Flowers</a>
+            <a href="/dataset" class="{{ 'active' if active == 'dataset' }}">Dataset</a>
+            <a href="/visuals" class="{{ 'active' if active == 'visuals' }}">Visualizations</a>
+            <a href="/finder" class="{{ 'active' if active == 'finder' }}">Flower Finder</a>
+            <a href="/about" class="{{ 'active' if active == 'about' }}">About</a>
+        </div>
+    </div>
+</nav>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p class="footer-title">Iris Flower Explorer</p>
+    <p class="footer-tag">Explore. Compare. Discover.</p>
+</footer>
+
+</body>
+</html>

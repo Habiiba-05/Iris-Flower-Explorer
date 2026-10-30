@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Flower Finder — Iris Flower Explorer{% endblock %}
+{% block content %}
+
+<section class="section" style="padding-bottom: 10px;">
+    <h1 class="section-title">🔎 Flower Finder</h1>
+    <p class="section-sub">Enter four measurements and we'll tell you which
+       Iris species yours looks most like.</p>
+</section>
+
+<div class="finder-wrap">
+    <form class="finder-form" method="POST">
+        <label>Sepal Length (cm)</label>
+        <input type="number" step="0.1" name="sepal_length" required
+               value="{{ request.form.get('sepal_length', '') }}">
+
+        <label>Sepal Width (cm)</label>
+        <input type="number" step="0.1" name="sepal_width" required
+               value="{{ request.form.get('sepal_width', '') }}">
+
+        <label>Petal Length (cm)</label>
+        <input type="number" step="0.1" name="petal_length" required
+               value="{{ request.form.get('petal_length', '') }}">
+
+        <label>Petal Width (cm)</label>
+        <input type="number" step="0.1" name="petal_width" required
+               value="{{ request.form.get('petal_width', '') }}">
+
+        <button type="submit" class="btn">Find My Flower</button>
+    </form>
+
+    {% if result %}
+    <div class="result-card">
+        <div class="img-wrap">
+            <img src="{{ url_for('static', filename='images/' ~ result.species ~ '.jpg') }}" alt="Iris {{ result.species }}">
+        </div>
+        <div class="body">
+            <h3>Iris {{ result.species | capitalize }}</h3>
+            <p class="statement">Your flower is most similar to <strong>Iris {{ result.species | capitalize }}</strong>.</p>
+            <div class="distance-tag">Distance score: {{ result.distance }}</div>
+            <p class="statement">{{ descriptions[result.species] }}</p>
+            <a href="/species/{{ result.species }}" class="btn btn-outline">View {{ result.species | capitalize }} Details</a>
+        </div>
+    </div>
+    {% else %}
+    <div class="result-placeholder">
+        <p>Fill in the measurements and submit the form — your closest match
+           will appear here, with a photo and its typical stats.</p>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

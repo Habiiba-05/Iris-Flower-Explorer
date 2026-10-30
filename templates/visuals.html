@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Visualizations — Iris Flower Explorer{% endblock %}
+{% block content %}
+
+<section class="section">
+    <h1 class="section-title">Visualizations</h1>
+    <p class="section-sub">Charts built with Matplotlib &amp; Seaborn to help you see
+       how the three species differ in size and shape.</p>
+
+    <div class="charts-grid">
+        <div class="chart-card">
+            <img src="{{ url_for('static', filename='charts/bar_petal_length.png') }}" alt="Bar chart of average petal length">
+            <p class="caption">Average petal length per species</p>
+        </div>
+        <div class="chart-card">
+            <img src="{{ url_for('static', filename='charts/scatter_sepal_petal.png') }}" alt="Scatter plot of sepal vs petal length">
+            <p class="caption">Sepal length vs petal length, by species</p>
+        </div>
+        <div class="chart-card">
+            <img src="{{ url_for('static', filename='charts/box_petal_width.png') }}" alt="Boxplot of petal width">
+            <p class="caption">Petal width distribution per species</p>
+        </div>
+        <div class="chart-card">
+            <img src="{{ url_for('static', filename='charts/hist_sepal_width.png') }}" alt="Histogram of sepal width">
+            <p class="caption">Sepal width distribution, all flowers</p>
+        </div>
+        <div class="chart-card" style="width: 100%; max-width: 900px;">
+            <img src="{{ url_for('static', filename='charts/pairplot.png') }}" alt="Pairplot of all measurements">
+            <p class="caption">Every measurement compared against every other measurement</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

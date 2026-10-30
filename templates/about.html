@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}About — Iris Flower Explorer{% endblock %}
+{% block content %}
+
+<section class="about-hero">
+    <div class="leaf-divider">🌿</div>
+    <h1>About Iris Flower Explorer</h1>
+    <p>Iris Flower Explorer is an interactive way to explore three Iris flower
+       species: Setosa, Versicolor, and Virginica. Discover their
+       characteristics, browse the dataset, compare their measurements, and
+       use the Flower Finder to find the species that best matches your own
+       measurements.</p>
+</section>
+
+<div class="about-grid">
+    <div class="about-card">
+        <div class="icon">🌸</div>
+        <h4>Three Species</h4>
+        <p>Setosa, Versicolor, and Virginica each have their own look and
+           typical measurements — get to know all three.</p>
+    </div>
+    <div class="about-card">
+        <div class="icon">📊</div>
+        <h4>Explore the Data</h4>
+        <p>Browse the full dataset, filter it by species, and see how
+           the measurements compare through charts.</p>
+    </div>
+    <div class="about-card">
+        <div class="icon">🔎</div>
+        <h4>Flower Finder</h4>
+        <p>Type in the measurements of your own flower and instantly see
+           which species it most resembles.</p>
+    </div>
+</div>
+
+{% endblock %}
